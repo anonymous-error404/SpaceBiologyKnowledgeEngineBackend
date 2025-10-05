@@ -13,17 +13,12 @@ public class CORSConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Apply CORS globally to all endpoints
-                registry.addMapping("/**")
-                        .allowedOrigins(
-                                "http://localhost:3000",
-                                "https://my-frontend.com",
-                                "https://frontend-smoky-ten-48.vercel.app/"
-                        ) // allow only these domains
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
-                        .allowedHeaders("*")
-                        .allowCredentials(true)
-                        .maxAge(3600);
+                registry.addMapping("/**") // Apply to all endpoints
+                        .allowedOrigins("*") // Allow all origins
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow common HTTP methods
+                        .allowedHeaders("*") // Allow all headers
+                        .allowCredentials(true) // Allow credentials (e.g., cookies)
+                        .maxAge(3600); // Cache preflight requests for 1 hour
             }
         };
     }
