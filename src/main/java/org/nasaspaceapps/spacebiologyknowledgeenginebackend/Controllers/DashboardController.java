@@ -30,4 +30,9 @@ public class DashboardController {
       return ResponseEntity.ok(Collections.singletonMap("years_list",dashboardService.getYearsCount()));
     }
 
+    @GetMapping("/topviewed")
+    public ResponseEntity<Map<String,List<String[]>>> getTopViewedPapers() {
+        return ResponseEntity.ok(Collections.singletonMap("top_viewed", dashboardService.getMostViewedPapers()));
+    }
+
 }

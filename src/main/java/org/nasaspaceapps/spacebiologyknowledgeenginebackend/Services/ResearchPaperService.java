@@ -17,12 +17,11 @@ public class ResearchPaperService {
         this.knowledgeRepository = knowledgeRepository;
     }
 
-    public List<ResearchPaperCardDTO> getResearchPaperCards() {
+    public List<ResearchPaperCardDTO> getResearchPaperCards(int latest) {
 
         List<ResearchPaperCardDTO> researchPaperCardDTOList = new ArrayList<>();
-        List<KnowledgeTable> allPapers =  knowledgeRepository.findAll();
 
-        for(KnowledgeTable paper: allPapers) {
+        for(KnowledgeTable paper: knowledgeRepository.findFirst10ByPaperIdGreaterThanOrderByPaperIdAsc(latest)) {
             ResearchPaperCardDTO  researchPaperCardDTO = new ResearchPaperCardDTO();
             researchPaperCardDTO.setTitle(paper.getTitle());
             researchPaperCardDTO.setSummary(paper.getSummary());

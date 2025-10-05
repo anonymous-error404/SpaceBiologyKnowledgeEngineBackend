@@ -20,4 +20,8 @@ public class DashboardService {
     public List<Integer[]> getYearsCount() {
         return knowledgeRepository.countOccurrencesByYear();
     }
+
+    public List<String[]> getMostViewedPapers(){
+        return knowledgeRepository.findTopTenMostViewed();
+    }
 }

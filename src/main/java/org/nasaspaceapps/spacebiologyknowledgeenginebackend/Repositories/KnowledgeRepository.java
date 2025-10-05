@@ -16,4 +16,10 @@ public interface KnowledgeRepository extends JpaRepository<KnowledgeTable, Integ
             "GROUP BY k.year " +
             "ORDER BY COUNT(k.year) DESC")
     List<Integer[]> countOccurrencesByYear();
+
+    List<KnowledgeTable> findFirst10ByPaperIdGreaterThanOrderByPaperIdAsc(int id);
+
+    @Query("SELECT k.title, k.url FROM KnowledgeTable k ORDER BY k.viewCount DESC limit 10")
+    List<String[]> findTopTenMostViewed();
+
 }
