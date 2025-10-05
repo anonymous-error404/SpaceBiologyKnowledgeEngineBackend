@@ -23,6 +23,7 @@ public class ResearchPaperService {
 
         for(KnowledgeTable paper: knowledgeRepository.findFirst10ByPaperIdGreaterThanOrderByPaperIdAsc(latest)) {
             ResearchPaperCardDTO  researchPaperCardDTO = new ResearchPaperCardDTO();
+            researchPaperCardDTO.setPaper_id(paper.getPaperId());
             researchPaperCardDTO.setTitle(paper.getTitle());
             researchPaperCardDTO.setSummary(paper.getSummary());
             researchPaperCardDTO.setPublication(paper.getPublication());

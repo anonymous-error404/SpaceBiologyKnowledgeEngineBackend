@@ -20,11 +20,6 @@ public class DashboardController {
         this.dashboardService = dashboardService;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
-
     @GetMapping("/years")
     public ResponseEntity<Map<String,List<Integer[]>>> getYearsCount() {
       return ResponseEntity.ok(Collections.singletonMap("years_list",dashboardService.getYearsCount()));

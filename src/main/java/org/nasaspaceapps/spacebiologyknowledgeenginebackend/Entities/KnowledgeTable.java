@@ -18,6 +18,7 @@ public class KnowledgeTable {
     private String title;
     private int year;
     private String url;
+    private String researchArea;
     @Column(columnDefinition = "TEXT")
     private String Abstract;
     @Column(columnDefinition = "TEXT")
@@ -184,6 +185,18 @@ public class KnowledgeTable {
     }
 
     public void setViewCount(int viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public String getResearchArea() {
+        return researchArea;
+    }
+
+    public void setResearchArea(String researchArea) {
+        this.researchArea = researchArea;
+    }
+
+    public void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
     }
 

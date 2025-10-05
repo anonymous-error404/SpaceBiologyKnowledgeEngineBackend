@@ -3,6 +3,7 @@ import java.util.List;
 
 public class ResearchPaperCardDTO {
 
+    private int paper_id;
     private String title;
     private String summary;
     private List<String> authors;
@@ -65,6 +66,14 @@ public class ResearchPaperCardDTO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getPaper_id() {
+        return paper_id;
+    }
+
+    public void setPaper_id(int paper_id) {
+        this.paper_id = paper_id;
     }
 
     @Override

@@ -3,51 +3,28 @@ package org.nasaspaceapps.spacebiologyknowledgeenginebackend.DTOs;
 import java.util.List;
 
 public class AuthorGraphDTO {
+    private String author;
+    private List<PaperDTO> papers;
 
-    private String name;
-    private List<String> papers;
-    private List<String> urls;
-    private List<String> researchArea;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getPapers() {
-        return papers;
-    }
-
-    public void setPapers(List<String> papers) {
+    public AuthorGraphDTO(String author, List<PaperDTO> papers) {
+        this.author = author;
         this.papers = papers;
     }
 
-    public List<String> getUrls() {
-        return urls;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setUrls(List<String> urls) {
-        this.urls = urls;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public List<String> getResearchArea() {
-        return researchArea;
+    public List<PaperDTO> getPapers() {
+        return papers;
     }
 
-    public void setResearchArea(List<String> researchArea) {
-        this.researchArea = researchArea;
+    public void setPapers(List<PaperDTO> papers) {
+        this.papers = papers;
     }
-
-    @Override
-    public String toString() {
-        return "AuthorGraphDTO{" +
-                "name='" + name + '\'' +
-                ", papers=" + papers +
-                ", urls=" + urls +
-                ", researchArea=" + researchArea +
-                '}';
-    }
+// getters and setters
 }
