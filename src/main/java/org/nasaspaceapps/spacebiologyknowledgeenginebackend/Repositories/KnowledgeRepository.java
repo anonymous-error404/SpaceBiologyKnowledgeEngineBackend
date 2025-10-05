@@ -68,4 +68,14 @@ public interface KnowledgeRepository extends JpaRepository<KnowledgeTable, Integ
     )
     List<Object[]> findPaperWithKeywords(@Param("paperId") int paperId);
 
+    @Query(value = """
+            SELECT DISTINCT k.paper_id, k.title
+            FROM knowledge_table k
+            LEFT JOIN knowledge_table_keywords kw ON k.paper_id = kw.knowledge_table_paper_id
+            WHERE LOWER(k.title) LIKE LOWER(CONCAT('%', :searchTerm, '%'))
+               OR LOWER(kw.keywords) LIKE LOWER(CONCAT('%', :searchTerm, '%'))
+               OR LOWER(k.research_area) LIKE LOWER(CONCAT('%', :searchTerm, '%'))
+            """, nativeQuery = true)
+    List<Object[]> searchByTerm(@Param("searchTerm") String searchTerm);
+
 }
