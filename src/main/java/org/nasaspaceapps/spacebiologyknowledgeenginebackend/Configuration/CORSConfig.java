@@ -17,7 +17,8 @@ public class CORSConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://localhost:3000",
-                                "https://my-frontend.com"
+                                "https://my-frontend.com",
+                                "https://frontend-smoky-ten-48.vercel.app/"
                         ) // allow only these domains
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                         .allowedHeaders("*")
